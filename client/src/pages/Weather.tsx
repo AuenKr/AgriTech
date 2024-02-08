@@ -3,6 +3,7 @@ import Details from "../components/weather/Details";
 import Days from "../components/weather/Days";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { BACKEND_URL } from "../constants";
 
 function Weather() {
   const [location, setLocation] = useState({});
@@ -36,7 +37,7 @@ function Weather() {
     if (Object.keys(location).length === 0) {
       return;
     }
-    const url = `http://localhost:3000/weather/location?lat=${location.lat}&lon=${location.lon}`;
+    const url = `${BACKEND_URL}/weather/location?lat=${location.lat}&lon=${location.lon}`;
     const token = localStorage.getItem("token");
     axios
       .get(url, {
