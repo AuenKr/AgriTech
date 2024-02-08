@@ -24,7 +24,7 @@ function DayWrapper({ dateTimeStamp, minTemp, maxTemp, type }) {
       <div className="w-full text-2xl m-2">
         <div className="flex justify-around">
           <img
-            src="/src/assets/sunrise.svg"
+            src="/sunrise.svg"
             alt="max Temprataure"
             width="30px"
             className="hover:animate-spin"
@@ -36,7 +36,7 @@ function DayWrapper({ dateTimeStamp, minTemp, maxTemp, type }) {
         </div>
         <div className="flex justify-around">
           <img
-            src="/src/assets/sunset.svg"
+            src="/sunset.svg"
             alt="min Temprataure"
             width="30px"
           />

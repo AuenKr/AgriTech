@@ -87,7 +87,7 @@ function Signin() {
                 <ButtonBox label={"Sign In"} onClick={onSubmit} />
               </div>
               <div className="text-center">
-                Don't have an account ?{" "}
+                Don&rsquo;t have an account ?{" "}
                 <a
                   href="/signup"
                   className="font-bold underline cursor-pointer"
@@ -101,7 +101,7 @@ function Signin() {
       </div>
       {width > 768 && (
         <div>
-          <img src="/src/assets/main.svg" alt="Image" />
+          <img src="/main.svg" alt="Image" />
         </div>
       )}
     </div>

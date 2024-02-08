@@ -51,7 +51,7 @@ function Weather() {
       });
   }, [location]);
 
-  const reloadHandler = (evt) => {
+  const reloadHandler = () => {
     loader.current.className = "w-[25px] animate-spin";
     navigator.geolocation.getCurrentPosition((position) => {
       const currLocation = {
@@ -77,7 +77,7 @@ function Weather() {
           <div className="transition hover:scale-150" onClick={reloadHandler}>
             <img
               className="w-[25px]"
-              src="src/assets/refreshLogo.svg"
+              src="/refreshLogo.svg"
               alt="refresh"
               ref={loader}
             />

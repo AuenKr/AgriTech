@@ -120,7 +120,7 @@ function Signup() {
       </div>
       {width > 768 && (
         <div>
-          <img src="/src/assets/main.svg" alt="Image" />
+          <img src="/main.svg" alt="Image" />
         </div>
       )}
     </div>
