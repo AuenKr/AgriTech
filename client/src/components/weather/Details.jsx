@@ -1,13 +1,25 @@
 import Wrapper from "./Wrapper";
 
-function Details({
-  feelsLike,
-  humidity,
-  maxTemp,
-  minTemp,
-  windSpeed,
-  visibility,
-}) {
+function Details({ feelsLike, humidity, maxTemp, minTemp, windSpeed, visibility, }) {
+  if (!feelsLike) {
+    return (
+      <div className="animate-pulse">
+        <Wrapper>
+          <div className="p-2 flex w-[250px] h-[200px] text-lg justify-between items-center">
+            <ul className="flex flex-col w-full justify-between space-y-2">
+              <li className="bg-blue-300 w-full h-6 rounded-lg"></li>
+              <li className="bg-blue-300 w-full h-6 rounded-lg"></li>
+              <li className="bg-blue-300 w-full h-6 rounded-lg"></li>
+              <li className="bg-blue-300 w-full h-6 rounded-lg"></li>
+              <li className="bg-blue-300 w-full h-6 rounded-lg"></li>
+              <li className="bg-blue-300 w-full h-6 rounded-lg"></li>
+            </ul>
+          </div>
+        </Wrapper>
+      </div>
+    );
+  }
+
   return (
     <div>
       <Wrapper>

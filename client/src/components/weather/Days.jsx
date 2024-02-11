@@ -8,7 +8,7 @@ function Days({ data }) {
           return;
         }
         return (
-          <div key={index} className="h-[150px] p-1">
+          <div key={index} className="h-[150px] p-2">
             <DayWrapper
               dateTimeStamp={eachDay.date}
               minTemp={eachDay.minTemp}

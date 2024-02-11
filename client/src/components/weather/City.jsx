@@ -1,6 +1,20 @@
 import Wrapper from "./Wrapper";
 
 function City({ city, temp, type }) {
+  // Skelton
+  if (!city || !temp || !type) {
+    return (
+      <div className="animate-pulse">
+        <Wrapper>
+          <div className="w-[250px] h-[200px] text-3xl flex flex-col justify-around items-center">
+            <h2 className="w-40 h-10 bg-blue-300 rounded-full"></h2>
+            <h1 className="w-44 h-14 bg-blue-300 rounded-full"></h1>
+            <h2 className="w-40 h-10 bg-blue-300 rounded-full"></h2>
+          </div>
+        </Wrapper>
+      </div>
+    )
+  }
   return (
     <div>
       <Wrapper>

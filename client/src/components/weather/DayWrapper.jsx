@@ -1,9 +1,7 @@
 function DayWrapper({ dateTimeStamp, minTemp, maxTemp, type }) {
   const date = new Date(dateTimeStamp * 1000);
-
-  const renderDate = `${date.getDate()}/${
-    date.getMonth() + 1
-  }/${date.getFullYear()}`;
+  const renderDate = `${date.getDate()}/${date.getMonth() + 1
+    }/${date.getFullYear()}`;
 
   const daysOfWeek = [
     "Sunday",
