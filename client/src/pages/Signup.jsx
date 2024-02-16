@@ -108,7 +108,7 @@ function Signup() {
               <div className="text-center">
                 Already have an account ?{" "}
                 <Link
-                  href="/signin"
+                  to="/signin"
                   className="font-bold underline cursor-pointer"
                 >
                   Sign In

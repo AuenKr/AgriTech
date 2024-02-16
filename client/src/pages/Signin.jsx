@@ -89,7 +89,7 @@ function Signin() {
               <div className="text-center">
                 Don&rsquo;t have an account ?{" "}
                 <Link
-                  href="/signup"
+                  to="/signup"
                   className="font-bold underline cursor-pointer"
                 >
                   Sign Up
