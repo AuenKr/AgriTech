@@ -7,7 +7,7 @@ import PreHeader from "../components/PreHeader";
 import SubHeader from "../components/SubHeader";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signin() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -88,12 +88,12 @@ function Signin() {
               </div>
               <div className="text-center">
                 Don&rsquo;t have an account ?{" "}
-                <a
+                <Link
                   href="/signup"
                   className="font-bold underline cursor-pointer"
                 >
                   Sign Up
-                </a>
+                </Link>
               </div>
             </div>
           </div>

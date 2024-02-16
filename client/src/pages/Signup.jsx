@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import ButtonBox from "../components/ButtonBox";
 import CardWrapper from "../components/CardWrapper";
@@ -107,12 +107,12 @@ function Signup() {
               </div>
               <div className="text-center">
                 Already have an account ?{" "}
-                <a
+                <Link
                   href="/signin"
                   className="font-bold underline cursor-pointer"
                 >
                   Sign In
-                </a>
+                </Link>
               </div>
             </div>
           </div>
