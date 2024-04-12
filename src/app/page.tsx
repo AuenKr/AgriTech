@@ -15,11 +15,11 @@ export default function Home() {
                         WHY PEOPLE KRISHI MANDI
                     </span>
                     <Image
-                        src={"/farm-choose-us.png"}
+                        src={"/farmLandingPage.png"}
                         alt="vegetables"
                         width={300}
                         height={300}
-                        className="animate-bounce delay-150 duration-1000 relative top-16"
+                        className="animate-bounce delay-150 duration-1000 relative top-16 w-auto h-auto"
                     />
                 </div>
             </div>

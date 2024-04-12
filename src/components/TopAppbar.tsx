@@ -4,6 +4,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { AppbarBtn } from "./AppbarBtn";
 import { SidebarBtn } from "./SidebarBtn";
+import { AccountAuthBtn } from "./AccountAuthBtn";
+import Link from "next/link";
+import { ModeToggle } from "./ModeToggle";
 
 export function TopAppbar() {
     const [appBar, setAppBar] = useState<boolean>(false);
@@ -35,14 +38,16 @@ export function TopAppbar() {
                 </div>
             </div>
             <div className="border-t-2 p-3 flex hover:text-green-500 hover:cursor-pointer transition duration-200">
-                <Image
-                    src="/account.svg"
-                    alt="Account logo"
-                    width={24}
-                    height={24}
-                    className="pr-2"
-                />
-                Login / Register
+                <Link href={"/api/auth/signin"}>
+                    <Image
+                        src="/account.svg"
+                        alt="Account logo"
+                        width={24}
+                        height={24}
+                        className="pr-2"
+                    />
+                    Login
+                </Link>
             </div>
         </div>
     );
@@ -59,7 +64,7 @@ export function TopAppbar() {
                     >
                         &#9776;
                     </div>
-                    <AppbarBtn imgSrc="search.svg" size={24} />
+                    <AppbarBtn imgSrc="/search.svg" size={24} />
                 </div>
                 <div className="font-extrabold">
                     <span className="hover:text-green-500 transition duration-200">
@@ -68,8 +73,9 @@ export function TopAppbar() {
                     <span className="text-green-500"> Mandi</span>
                 </div>
                 <div className="flex space-x-2">
-                    <AppbarBtn imgSrc="account.svg" size={24} />
-                    <AppbarBtn imgSrc="cart.svg" size={24} />
+                    <AccountAuthBtn />
+                    <AppbarBtn imgSrc="/cart.svg" size={24} />
+                    <ModeToggle />
                 </div>
             </div>
         </div>

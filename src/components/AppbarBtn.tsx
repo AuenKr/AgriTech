@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { MouseEventHandler } from "react";
 
@@ -32,4 +31,5 @@ interface BottomAppBtnType {
     label?: string;
     size?: number;
     onClick?: MouseEventHandler<HTMLDivElement> | undefined;
+    children?: React.ReactNode;
 }
