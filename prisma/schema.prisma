@@ -1,0 +1,90 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String
+  mobile    String?   @unique
+  firstName String
+  lastName  String?
+  role      userRole
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  verified  Boolean   @default(false)
+  Farmer    Farmer[]
+  Address   Address[]
+  Buyer     Buyer[]
+  Order     Order[]
+}
+
+enum userRole {
+  farmer
+  buyer
+}
+
+model Farmer {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  user      User      @relation(fields: [userId], references: [id])
+  product   Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Buyer {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  companyName String?
+  order       Order[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Product {
+  id                Int      @id @default(autoincrement())
+  name              String
+  description       String?
+  price             Int
+  salePrice         Int
+  quantityAvailable Int
+  farmer            Farmer[]
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Address {
+  id           Int     @id @default(autoincrement())
+  userId       Int
+  user         User    @relation(fields: [userId], references: [id])
+  pincode      String
+  locality     String
+  address      String
+  landmark     String?
+  city         String
+  state        String
+  alternateMob String?
+}
+
+model Order {
+  id            Int      @id @default(autoincrement())
+  userId        Int
+  user          User     @relation(fields: [userId], references: [id])
+  paymentStatus String
+  buyerId       Int?
+  buyer         Buyer?   @relation(fields: [buyerId], references: [id])
+  createdAt     DateTime @default(now())
+}
