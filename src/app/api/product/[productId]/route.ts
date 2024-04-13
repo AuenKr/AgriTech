@@ -111,7 +111,7 @@ export async function DELETE(req: NextRequest, { params }: {
                 msg: "Invalid User"
             }, { status: 403 })
         }
-        const result = prisma.product.delete({
+        const result = await prisma.product.delete({
             where: {
                 id: Number(productId),
                 userId: Number(session.user.userId)

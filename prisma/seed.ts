@@ -83,13 +83,17 @@ async function seedDB() {
             data: [
                 {
                     "userId": 1,
-                    "paymentStatus": "pending",
-                    "buyerId": null,
+                    "status": "pending",
+                    "productId": 2,
+                    "quantity": 100,
+                    "bidPrice": 400
                 },
                 {
                     "userId": 2,
-                    "paymentStatus": "paid",
-                    "buyerId": 1,
+                    "status": "paid",
+                    "productId": 1,
+                    "quantity": 100,
+                    "bidPrice": 100
                 }
             ]
         })

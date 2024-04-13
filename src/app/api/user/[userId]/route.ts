@@ -80,7 +80,7 @@ export async function DELETE(req: NextRequest) {
                 msg: "Invalid User"
             }, { status: 403 })
         }
-        const result = prisma.user.delete({
+        const result = await prisma.user.delete({
             where: {
                 id: Number(session.user?.userId),
             }
