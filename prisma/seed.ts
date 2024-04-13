@@ -25,16 +25,10 @@ async function seedDB() {
                 }
             ]
         })
-        // Farmer
-        await prisma.farmer.create({
-            data: {
-                "userId": 1,
-            }
-        })
         // Buyer
         await prisma.buyer.create({
             data: {
-                userId: 2,
+                id: 2,
                 companyName: "ABC Company"
             }
         })
@@ -47,6 +41,7 @@ async function seedDB() {
                     "price": 200,
                     "salePrice": 120,
                     "quantityAvailable": 100,
+                    "userId": 1,
                 },
                 {
                     "name": "Banana",
@@ -54,6 +49,7 @@ async function seedDB() {
                     "price": 50,
                     "salePrice": 30,
                     "quantityAvailable": 200,
+                    "userId": 1
                 }
             ]
         })

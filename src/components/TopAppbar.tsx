@@ -7,15 +7,17 @@ import { SidebarBtn } from "./SidebarBtn";
 import { AccountAuthBtn } from "./AccountAuthBtn";
 import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
+import { useSession } from "next-auth/react";
 
 export function TopAppbar() {
     const [appBar, setAppBar] = useState<boolean>(false);
     const navebarHandler = () => {
         setAppBar((prev) => !prev);
     };
+    const { data: session, status } = useSession();
 
     const navbar = (
-        <div className="flex flex-col justify-between h-screen bg-white z-50 w-9/12 text-start sticky top-0">
+        <div className="flex flex-col justify-between h-screen z-50 w-9/12 text-start sticky top-0 dark:text-white dark:bg-black">
             <div>
                 <div className="font-extrabold text-4xl p-3 border-b-2 pb-3 text-center flex justify-between">
                     <div className="flex-grow">
@@ -53,7 +55,11 @@ export function TopAppbar() {
     );
 
     return (
-        <div className="">
+        <div className="dark:text-white dark:bg-black">
+            <div className="bg-red-500 flex flex-col text-center">
+                <span>{JSON.stringify(session)}</span>
+                <span>{status}</span>
+            </div>
             {appBar ? navbar : null}
             <div className="flex bg-white justify-between text-2xl pt-4 p-3 border-b sticky top-0 text-center">
                 <div className="flex space-x-2 hover:cursor-pointer hover:text-green-500">

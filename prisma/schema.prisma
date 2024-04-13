@@ -24,10 +24,10 @@ model User {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   verified  Boolean   @default(false)
-  Farmer    Farmer[]
   Address   Address[]
   Buyer     Buyer[]
   Order     Order[]
+  Product   Product[]
 }
 
 enum userRole {
@@ -35,23 +35,11 @@ enum userRole {
   buyer
 }
 
-model Farmer {
-  id        Int       @id @default(autoincrement())
-  userId    Int
-  user      User      @relation(fields: [userId], references: [id])
-  product   Product[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-}
-
 model Buyer {
-  id          Int      @id @default(autoincrement())
-  userId      Int
-  user        User     @relation(fields: [userId], references: [id])
+  id          Int     @id
+  user        User    @relation(fields: [id], references: [id])
   companyName String?
   order       Order[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
 }
 
 model Product {
@@ -61,7 +49,8 @@ model Product {
   price             Int
   salePrice         Int
   quantityAvailable Int
-  farmer            Farmer[]
+  userId            Int      
+  user              User     @relation(fields: [userId], references: [id])
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 }

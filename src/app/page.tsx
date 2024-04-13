@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
     return (
-        <div className="font-roboto flex flex-col justify-between">
+        <div className="font-roboto flex flex-col justify-between dark:text-white dark:bg-black">
             <div>
                 <HomeCarousel />
                 <div className="flex flex-col items-center justify-center space-y-3 mt-5 text-xl mb-36">

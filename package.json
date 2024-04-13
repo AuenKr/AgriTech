@@ -12,7 +12,8 @@
     "lint": "next lint",
     "db:migrate": "pnpm dlx prisma migrate dev --name ",
     "db:generate": "pnpm dlx prisma generate",
-    "db:seed": "prisma db seed"
+    "db:seed": "prisma db seed",
+    "studio": "pnpm dlx prisma studio"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",

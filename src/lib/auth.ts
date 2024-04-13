@@ -20,7 +20,6 @@ export const authOption: AuthOptions = {
                     if (!credentials?.email || !credentials?.password) {
                         return null;
                     }
-                    console.log(credentials);
                     const result = await prisma.user.findFirst({
                         where: {
                             email: credentials.email,
@@ -41,4 +40,20 @@ export const authOption: AuthOptions = {
         }),
     ],
     secret: process.env.NEXTAUTH_SECRET,
+    callbacks: {
+        jwt: async ({ user, token }: any) => {
+            if (user) {
+                token.uid = user.id;
+                token.firstName = user.firstName;
+            }
+            return token;
+        },
+        session: async ({ session, token }: any) => {
+            if (session.user) {
+                session.user.userId = token.uid;
+                session.user.firstName = token.firstName;
+            }
+            return session;
+        }
+    }
 }
