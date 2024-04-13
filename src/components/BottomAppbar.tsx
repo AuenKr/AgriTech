@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function BottomAppbar() {
     return (
-        <div className="flex justify-around items-center p-1 bg-slate-100 fixed bottom-0 left-0 w-full z-10">
+        <div className="flex justify-around items-center p-1 bg-slate-100 fixed bottom-0 left-0 w-full z-10 dark:bg-black dark:text-white">
             <Link href={"/shop"}>
                 <AppbarBtn imgSrc="shop.svg" label="shop" />
             </Link>

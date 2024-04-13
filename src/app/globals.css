@@ -75,3 +75,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes translate {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(0, 40px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.animate-translate {
+  animation: translate 3s ease-in-out infinite;
+}

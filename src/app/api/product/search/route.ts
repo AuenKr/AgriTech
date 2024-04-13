@@ -1,6 +1,7 @@
 import prisma from "@/db";
 import { NextRequest, NextResponse } from "next/server";
 import Fuse from 'fuse.js';
+import { searchProduct } from "@/actions/product/search";
 
 export async function GET(req: NextRequest) {
     const searchParams = req.nextUrl.searchParams
@@ -11,27 +12,10 @@ export async function GET(req: NextRequest) {
             result: null,
         })
     }
-    const prismaSearchResult = await prisma.product.findMany({
-        select: {
-            name: true,
-            description: true
-        }
-    })
-    const fuse = new Fuse(prismaSearchResult, fuseOptions);
-
-    const searchResult = fuse.search(query);
-
+    const searchResult = await searchProduct(query);
     return NextResponse.json({
         msg: "on serach route",
-        result: searchResult,
+        results: searchResult
     })
 }
-
-const fuseOptions = {
-    keys: [
-        "name",
-        "description"
-    ]
-};
-
 

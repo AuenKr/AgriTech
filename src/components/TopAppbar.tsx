@@ -8,6 +8,7 @@ import { AccountAuthBtn } from "./AccountAuthBtn";
 import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
 import { useSession } from "next-auth/react";
+import { SearchBar } from "./SearchBar";
 
 export function TopAppbar() {
     const [appBar, setAppBar] = useState<boolean>(false);
@@ -25,7 +26,7 @@ export function TopAppbar() {
                         <span className="text-green-500"> Mandi</span>
                     </div>
                     <div
-                        className="relative left-8 bottom-2 px-3 py-1 rounded-full border bg-white font-extralight text-2xl hover:bg-green-400 active:bg-green-600 cursor-pointer"
+                        className="relative left-8 bottom-2 px-3 py-1 rounded-full border-2 border-gray-600 dark:border-gray-500 font-extralight text-2xl hover:bg-green-400 active:bg-green-600 cursor-pointer"
                         onClick={navebarHandler}
                     >
                         {"<"}
@@ -61,16 +62,16 @@ export function TopAppbar() {
                 <span>{status}</span>
             </div>
             {appBar ? navbar : null}
-            <div className="flex bg-white justify-between text-2xl pt-4 p-3 border-b sticky top-0 text-center">
-                <div className="flex space-x-2 hover:cursor-pointer hover:text-green-500">
+            <div className="flex justify-between text-2xl pt-4 p-3 border-b sticky top-0 text-center">
+                <div className="flex space-x-2">
                     {/* hamberger icon */}
                     <div
                         onClick={navebarHandler}
-                        className="transition duration-200"
+                        className="transition duration-200 hover:cursor-pointer hover:text-green-500"
                     >
                         &#9776;
                     </div>
-                    <AppbarBtn imgSrc="/search.svg" size={24} />
+                    <SearchBar />
                 </div>
                 <div className="font-extrabold">
                     <span className="hover:text-green-500 transition duration-200">

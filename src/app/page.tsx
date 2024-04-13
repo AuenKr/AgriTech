@@ -14,13 +14,14 @@ export default function Home() {
                     <span className="uppercase font-extrabold">
                         WHY PEOPLE KRISHI MANDI
                     </span>
-                    <Image
-                        src={"/farmLandingPage.png"}
-                        alt="vegetables"
-                        width={300}
-                        height={300}
-                        className="animate-bounce delay-150 duration-1000 relative top-16 w-auto h-auto"
-                    />
+                    <div className="animate-translate p-2">
+                        <Image
+                            src={"/farmLandingPage.png"}
+                            alt="vegetables"
+                            width={300}
+                            height={300}
+                        />
+                    </div>
                 </div>
             </div>
             <BottomAapbar />
