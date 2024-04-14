@@ -6,8 +6,8 @@ async function seedDB() {
         await prisma.user.createMany({
             data: [
                 {
-                    email: "user1@example.com",
-                    password: "password1",
+                    email: "abc@abc.com",
+                    password: "123123",
                     mobile: "1234567890",
                     firstName: "John",
                     lastName: "Doe",
@@ -50,6 +50,29 @@ async function seedDB() {
                     "salePrice": 30,
                     "quantityAvailable": 200,
                     "userId": 1
+                }
+            ]
+        })
+        // Imges
+        await prisma.image.createMany({
+            data: [
+                // Images for the Apple product
+                {
+                    productId: 1,
+                    imageUrl: "https://cdn.britannica.com/22/187222-050-07B17FB6/apples-on-a-tree-branch.jpg"
+                },
+                {
+                    productId: 1,
+                    imageUrl: "https://freshindiaorganics.com/cdn/shop/products/Apples.jpg?v=1686739530"
+                },
+                // Images for the Banana product
+                {
+                    productId: 2,
+                    imageUrl: "https://cdn.britannica.com/58/194358-050-91CE9CB6/Gros-Michel-banana-tree.jpg"
+                },
+                {
+                    productId: 2,
+                    imageUrl: "https://herbalwise.com.my/wp-content/uploads/2022/07/shutterstock_533882299-500x370.jpg"
                 }
             ]
         })
@@ -97,6 +120,23 @@ async function seedDB() {
                 }
             ]
         })
+        // Message
+        const messages = [
+            { message: "Hello, I'm interested in your product.", senderId: 1, productId: 2 },
+            { message: "Can you provide more details about this product?", senderId: 1, productId: 2 },
+            { message: "Do you offer any discounts for bulk orders?", senderId: 2, productId: 1 },
+            { message: "I would like to place an order for this product.", senderId: 2, productId: 1 },
+            // Add more random messages as needed
+        ];
+        for (const message of messages) {
+            await prisma.message.create({
+                data: {
+                    message: message.message,
+                    senderId: message.senderId,
+                    productId: message.productId,
+                },
+            });
+        }
         return "Data seeding successful";
     })
 }

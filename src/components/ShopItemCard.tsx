@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { AppbarBtn } from "./AppbarBtn";
 import Link from "next/link";
+import { Contact } from "lucide-react";
+import { ContactBtn } from "./ContactBtn";
 
 export function ShopItemCard({
     id,
@@ -10,14 +12,12 @@ export function ShopItemCard({
     salePrice,
 }: ShopItemCardType) {
     return (
-        <div className="flex flex-col border-2 m-2 shadow-md hover:shadow-lg">
+        <div className="w-full h-[450px] flex flex-col border-2 m-2 shadow-md hover:shadow-lg md:w-[500px] rounded-lg">
             <div className="w-full overflow-hidden">
-                <Image
+                <img
                     src={imgSrc}
                     alt={name}
-                    width={500}
-                    height={300}
-                    className="hover:scale-110 transition-all duration-500"
+                    className="hover:scale-110 transition-all duration-500 w-full aspect-auto max-w-lg h-[350px] sm:h-full rounded-lg"
                 />
             </div>
             <div className="flex justify-between">
@@ -35,8 +35,8 @@ export function ShopItemCard({
                         </div>
                     </div>
                 </Link>
-                <div>
-                    <AppbarBtn imgSrc="cart.svg" label="Add to Cart" />
+                <div className="flex items-center justify-center p-2">
+                    <ContactBtn productId={String(id)}>Contact Now</ContactBtn>
                 </div>
             </div>
         </div>

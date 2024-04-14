@@ -42,8 +42,7 @@ export function SignUpForm() {
             toast({
                 title: result.msg,
             });
-        }
-        router.push("/api/auth/signin");
+        } else router.push("/api/auth/signin");
     }
 
     return (

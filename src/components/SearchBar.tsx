@@ -16,7 +16,7 @@ import { DialogClose } from "@radix-ui/react-dialog";
 
 let debouncing: NodeJS.Timeout;
 
-export function SearchBar() {
+export function SearchBar({ type = "top" }: SearchBarType) {
     const [inputValue, setInputValue] = useState<string>("");
     const [serachResult, setSearchResult] = useState<SearchResultType | null>();
 
@@ -44,13 +44,13 @@ export function SearchBar() {
     return (
         <Dialog>
             <DialogTrigger>
-                <div className="hidden md:block border-2 rounded-lg dark:border-slate-800 ml-2">
+                <div className="hidden sm:block border-2 rounded-lg dark:border-slate-800 ml-2">
                     <div className="flex justify-center items-center">
-                        <Input />
-                        <Search className="mx-2" />
+                        {type === "top" ? <Input /> : null}
+                        <Search className="m-2" />
                     </div>
                 </div>
-                <Search className="md:hidden" />
+                <Search className="sm:hidden" />
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
@@ -103,4 +103,8 @@ interface SearchResultType {
         };
         refIndex: number;
     }[];
+}
+
+interface SearchBarType {
+    type?: "top" | "bottom";
 }

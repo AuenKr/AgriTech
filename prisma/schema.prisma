@@ -29,6 +29,7 @@ model User {
   Buyer     Buyer[]
   Order     Order[]
   Product   Product[]
+  Message   Message[]
 }
 
 enum userRole {
@@ -43,17 +44,26 @@ model Buyer {
 }
 
 model Product {
-  id                Int      @id @default(autoincrement())
+  id                Int       @id @default(autoincrement())
   name              String
   description       String?
   price             Int
   salePrice         Int
   quantityAvailable Int
   userId            Int
-  user              User     @relation(fields: [userId], references: [id])
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  user              User      @relation(fields: [userId], references: [id])
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
   Order             Order[]
+  Image             Image[]
+  Message           Message[]
+}
+
+model Image {
+  id        Int     @id @default(autoincrement())
+  productId Int
+  product   Product @relation(fields: [productId], references: [id])
+  imageUrl  String
 }
 
 model Address {
@@ -72,7 +82,8 @@ model Address {
 model Order {
   id        Int      @id @default(autoincrement())
   quantity  Int
-  bidPrice  Int?
+  bidPrice  Int
+  message   String?
   status    String   @default("pending")
   userId    Int
   user      User     @relation(fields: [userId], references: [id])
@@ -80,4 +91,13 @@ model Order {
   product   Product  @relation(fields: [productId], references: [id])
   createdAt DateTime @default(now())
   updateAt  DateTime @updatedAt
+}
+
+model Message {
+  id        Int     @id @default(autoincrement())
+  message   String
+  senderId  Int
+  user      User    @relation(fields: [senderId], references: [id])
+  productId Int
+  product   Product @relation(fields: [productId], references: [id])
 }

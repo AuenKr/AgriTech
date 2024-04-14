@@ -12,3 +12,4 @@ export async function getOrderDetails(productId: string) {
     }
     return result;
 }
+

@@ -6,8 +6,8 @@ export function AppbarBtn({
     label,
     imgSrc,
     size = 28,
-    onClick = () => null,
-}: BottomAppBtnType) {
+    onClick,
+}: AppbarBtnType) {
     return (
         <div
             className="flex flex-col justify-center items-center hover:text-green-500 active:text-green-700"
@@ -26,7 +26,7 @@ export function AppbarBtn({
     );
 }
 
-interface BottomAppBtnType {
+interface AppbarBtnType {
     imgSrc?: string;
     label?: string;
     size?: number;

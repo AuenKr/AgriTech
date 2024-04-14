@@ -28,12 +28,15 @@ export async function POST(req: NextResponse) {
                 msg: "Invaid inputs"
             }, { status: 403 })
         }
+        console.log(session.user.userId);
+        console.log(body);
         const result = await prisma.order.create({
             data: {
                 productId: Number(body.productId),
                 userId: Number(session.user.userId),
-                quantity: body.quantity,
-                bidPrice: body.bidPrice,
+                quantity: Number(body.quantity),
+                bidPrice: Number(body.bidPrice),
+                message: body.message
             }
         })
         return NextResponse.json({
