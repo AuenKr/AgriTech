@@ -4,7 +4,7 @@ import { CreateProductSchema} from "@/actions/product/schema";
 import prisma from "@/db";
 import { authOption } from "@/lib/auth";
 import { getServerSession } from "next-auth";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 export async function GET() {
@@ -14,7 +14,7 @@ export async function GET() {
     })
 }
 
-export async function POST(req: NextResponse) {
+export async function POST(req: NextRequest) {
     try {
         const session: Session | null = await getServerSession(authOption);
         if (!session) {

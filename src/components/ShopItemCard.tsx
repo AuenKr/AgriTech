@@ -1,8 +1,6 @@
-import Image from "next/image";
-import { AppbarBtn } from "./AppbarBtn";
 import Link from "next/link";
-import { Contact } from "lucide-react";
 import { ContactBtn } from "./ContactBtn";
+import Image from "next/image";
 
 export function ShopItemCard({
     id,
@@ -14,9 +12,11 @@ export function ShopItemCard({
     return (
         <div className="w-full h-[450px] flex flex-col border-2 m-2 shadow-md hover:shadow-lg md:w-[500px] rounded-lg">
             <div className="w-full overflow-hidden">
-                <img
+                <Image
                     src={imgSrc}
                     alt={name}
+                    width={1280}
+                    height={720}
                     className="hover:scale-110 transition-all duration-500 w-full aspect-auto max-w-lg h-[350px] sm:h-full rounded-lg"
                 />
             </div>

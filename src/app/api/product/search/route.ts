@@ -1,6 +1,4 @@
-import prisma from "@/db";
 import { NextRequest, NextResponse } from "next/server";
-import Fuse from 'fuse.js';
 import { searchProduct } from "@/actions/product/search";
 
 export async function GET(req: NextRequest) {

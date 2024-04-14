@@ -70,8 +70,8 @@ export async function PUT(req: NextRequest, { params }: {
                 id: Number(orderId)
             },
             data: {
-                quantity: body.quantity,
-                bidPrice: body.bidPrice,
+                quantity: Number(body.quantity),
+                bidPrice: Number(body.bidPrice),
                 productId: Number(body.productId),
             }
 

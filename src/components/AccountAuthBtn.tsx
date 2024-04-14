@@ -10,8 +10,6 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
-import { DialogClose } from "@radix-ui/react-dialog";
-import { CartSidebar } from "./CartSidebar";
 
 export function AccountAuthBtn() {
     const session = useSession();

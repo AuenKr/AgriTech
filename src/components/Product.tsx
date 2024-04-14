@@ -6,9 +6,8 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button } from "./ui/button";
-import { redirect } from "next/navigation";
 import { ContactBtn } from "./ContactBtn";
+import Image from "next/image";
 
 export async function ProductCard({ productId }: { productId: string }) {
     const productDetail = await getProductDetails(productId);
@@ -27,11 +26,13 @@ export async function ProductCard({ productId }: { productId: string }) {
                             <CarouselItem
                                 key={image.id}
                                 className="overflow-hidden"
-                            >
-                                <img
-                                    className="hover:scale-125 transition-all duration-500 w-full aspect-auto max-w-lg h-[60vh] sm:h-full rounded-lg"
+                                >
+                                <Image
                                     src={image.imageUrl}
                                     alt={String(image.id)}
+                                    width={1280}
+                                    height={720}
+                                    className="hover:scale-125 transition-all duration-500 w-full aspect-auto max-w-lg h-[60vh] sm:h-full rounded-lg"
                                 />
                             </CarouselItem>
                         );

@@ -1,6 +1,6 @@
 import { CreateUserSchema } from "@/actions/auth/schema";
 import prisma from "@/db";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 export async function GET() {
@@ -10,7 +10,7 @@ export async function GET() {
     })
 }
 
-export async function POST(req: NextResponse) {
+export async function POST(req: NextRequest) {
     try {
         const body: z.infer<typeof CreateUserSchema> = await req.json();
         const { success } = CreateUserSchema.safeParse(body)
