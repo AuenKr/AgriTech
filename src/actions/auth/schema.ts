@@ -1,9 +1,13 @@
 import { z } from 'zod';
 
+const phoneRegex = new RegExp(
+    /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
+);
+
 export const CreateUserSchema = z.object({
     email: z.string().email(),
-    password: z.string().length(6),
-    mobile: z.string().length(10).optional(),
+    password: z.string().min(6),
+    mobile: z.string().regex(phoneRegex, 'Invalid Mobile Number!').optional(),
     firstName: z.string(),
     lastName: z.string().optional(),
     role: z.enum(["farmer", "buyer"]),

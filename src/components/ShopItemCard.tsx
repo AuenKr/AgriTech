@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { AppbarBtn } from "./AppbarBtn";
+import Link from "next/link";
 
 export function ShopItemCard({
+    id,
     imgSrc,
     name,
     price,
@@ -19,18 +21,20 @@ export function ShopItemCard({
                 />
             </div>
             <div className="flex justify-between">
-                <div className="flex flex-col items-start p-2 font-bold">
-                    <div>
-                        <span className="capitalize">{name}</span>
-                        <span>{" ( 1 kg )"}</span>
+                <Link href={`/shop/${id}`} className="grow">
+                    <div className="flex flex-col items-start p-2 font-bold">
+                        <div>
+                            <span className="capitalize">{name}</span>
+                            <span>{" ( 1 kg )"}</span>
+                        </div>
+                        <div className="space-x-2">
+                            <span className="line-through text-gray-400">
+                                ₹{price}
+                            </span>
+                            <span>₹{salePrice}</span>
+                        </div>
                     </div>
-                    <div className="space-x-2">
-                        <span className="line-through text-gray-400">
-                            ₹{price}
-                        </span>
-                        <span>₹{salePrice}</span>
-                    </div>
-                </div>
+                </Link>
                 <div>
                     <AppbarBtn imgSrc="cart.svg" label="Add to Cart" />
                 </div>
@@ -40,8 +44,9 @@ export function ShopItemCard({
 }
 
 interface ShopItemCardType {
+    id: number;
     imgSrc: string;
     name: string;
-    price: string;
-    salePrice: string;
+    price: number;
+    salePrice: number;
 }

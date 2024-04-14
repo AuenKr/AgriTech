@@ -44,7 +44,7 @@ export function SearchBar() {
     return (
         <Dialog>
             <DialogTrigger>
-                <div className="hidden md:block border-2 rounded-lg dark:border-slate-500 ml-2">
+                <div className="hidden md:block border-2 rounded-lg dark:border-slate-800 ml-2">
                     <div className="flex justify-center items-center">
                         <Input />
                         <Search className="mx-2" />

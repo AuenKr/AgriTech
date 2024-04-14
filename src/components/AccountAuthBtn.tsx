@@ -10,6 +10,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
+import { DialogClose } from "@radix-ui/react-dialog";
 
 export function AccountAuthBtn() {
     const session = useSession();
@@ -29,9 +30,14 @@ export function AccountAuthBtn() {
                         </DropdownMenuItem>
                     </>
                 ) : (
-                    <DropdownMenuItem>
-                        <Link href={"/api/auth/signin"}>Sign In</Link>
-                    </DropdownMenuItem>
+                    <>
+                        <DropdownMenuItem>
+                            <Link href={"/api/auth/signin"}>Sign In</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <Link href={"/auth/signup"}>Sign Up</Link>
+                        </DropdownMenuItem>
+                    </>
                 )}
                 <DropdownMenuItem>Cart</DropdownMenuItem>
             </DropdownMenuContent>

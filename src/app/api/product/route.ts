@@ -1,5 +1,6 @@
 import { Session } from "@/actions/auth/type";
-import { CreateProductSchema, UpdateProductSchema } from "@/actions/product/schema";
+import { getAllProducts } from "@/actions/product";
+import { CreateProductSchema} from "@/actions/product/schema";
 import prisma from "@/db";
 import { authOption } from "@/lib/auth";
 import { getServerSession } from "next-auth";
@@ -7,7 +8,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 
 export async function GET() {
-    const result = await prisma.product.findMany({});
+    const result = await getAllProducts();
     return NextResponse.json({
         products: result
     })

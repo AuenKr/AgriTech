@@ -1,22 +1,24 @@
+import { getAllProducts } from "@/actions/product";
 import { ShopAppbar } from "@/components/ShopAppbar";
 import { ShopItemCard } from "@/components/ShopItemCard";
 
-export default function Shop() {
+export default async function Shop() {
+    const allProducts = await getAllProducts();
     return (
         <>
             <ShopAppbar />
-            <ShopItemCard
-                imgSrc="/potatoes.jpg"
-                name="potato"
-                price="89.00"
-                salePrice="39.00"
-            />
-            <ShopItemCard
-                imgSrc="/tomatoes.jpg"
-                name="tomatoe"
-                price="89.00"
-                salePrice="49.00"
-            />
+            {allProducts.map((product) => {
+                return (
+                    <ShopItemCard
+                        key={product.id}
+                        id={product.id}
+                        imgSrc="/potatoes.jpg"
+                        name={product.name}
+                        price={product.price}
+                        salePrice={product.salePrice}
+                    />
+                );
+            })}
         </>
     );
 }
