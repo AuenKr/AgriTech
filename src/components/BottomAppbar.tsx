@@ -12,7 +12,6 @@ export default function BottomAppbar() {
             </Link>
             <div className="flex flex-col items-center justify-center">
                 <SearchBar type="bottom" />
-                <span className="font-bold hover:text-green-500">Search</span>
             </div>
             <CartSidebar>
                 <div className="flex flex-col justify-center items-center hover:text-green-500 active:text-green-700">
@@ -22,7 +21,7 @@ export default function BottomAppbar() {
                         width={24}
                         height={24}
                     />
-                    <span className="font-bold px-2 p-1">Category</span>
+                    <span className="font-bold px-2 p-1">Wish List</span>
                 </div>
             </CartSidebar>
         </div>

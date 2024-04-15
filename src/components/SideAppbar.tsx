@@ -36,31 +36,31 @@ export function SideAppbar() {
 
                         <div className="flex flex-col text-md font-bold space-y-2 capitalize">
                             <Link
-                                href={"home"}
+                                href={"/"}
                                 className="hover:text-green-500 duration-200"
                             >
                                 Home
                             </Link>
                             <Link
-                                href={"shop"}
+                                href={"/shop"}
                                 className="hover:text-green-500 duration-200"
                             >
                                 Shop
                             </Link>
                             <Link
-                                href={"blog"}
+                                href={"https://blogger-omega-wheat.vercel.app/"}
                                 className="hover:text-green-500 duration-200"
                             >
                                 Blog
                             </Link>
                             <Link
-                                href={"about"}
+                                href={"/about"}
                                 className="hover:text-green-500 duration-200"
                             >
                                 AboutUs
                             </Link>
                             <Link
-                                href={"contact"}
+                                href={"/contact"}
                                 className="hover:text-green-500 duration-200"
                             >
                                 ContactUs

@@ -10,13 +10,14 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
+import { ActivityIcon, UserRound } from "lucide-react";
 
 export function AccountAuthBtn() {
     const session = useSession();
     return (
         <DropdownMenu>
             <DropdownMenuTrigger>
-                <AppbarBtn imgSrc="/account.svg" />
+                <UserRound />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
                 {session.data ? (
@@ -38,9 +39,6 @@ export function AccountAuthBtn() {
                         </DropdownMenuItem>
                     </>
                 )}
-                <DropdownMenuItem>
-                    Cart
-                </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     );

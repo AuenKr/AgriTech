@@ -21,21 +21,19 @@ export function SearchBar({ type = "top" }: SearchBarType) {
     const [serachResult, setSearchResult] = useState<SearchResultType | null>();
 
     useEffect(() => {
+        if (inputValue === "") return;
         debouncing = setTimeout(async () => {
-            console.log(inputValue);
-            console.log(process.env.NEXT_PUBLIC_BACKEND_URL);
             const response = await fetch(
                 `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/product/search/?q=${inputValue}`,
                 {
                     next: {
-                        revalidate: 60 * 1,
+                        revalidate: 0,
                     },
                 }
             );
             const result: SearchResultType = await response.json();
             setSearchResult(result);
-            console.log(result);
-        }, 300);
+        }, 250);
         return () => {
             clearTimeout(debouncing);
         };
@@ -50,7 +48,14 @@ export function SearchBar({ type = "top" }: SearchBarType) {
                         <Search className="m-2" />
                     </div>
                 </div>
-                <Search className="sm:hidden" />
+                <div className="sm:hidden flex flex-col items-center space-y-1">
+                    <Search />
+                    {type === "bottom" ? (
+                        <span className="font-bold hover:text-green-500">
+                            Search
+                        </span>
+                    ) : null}
+                </div>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>

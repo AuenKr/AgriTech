@@ -15,15 +15,17 @@ export function CardCarousel({
                     <div className="text-3xl font-extrabold uppercase">
                         {header}
                     </div>
-                    <div className="text-sm">
-                        {postHeader}
-                    </div>
+                    <div className="text-sm">{postHeader}</div>
                     <div className="flex justify-around pt-5">
                         <Button className="hover:bg-green-500 active:bg-green-700">
-                            <Link href={"#"}>Shop Now</Link>
+                            <Link href={"/shop"}>Shop Now</Link>
                         </Button>
                         <Button className="hover:bg-green-500 active:bg-green-700">
-                            <Link href={"#"}>Read More</Link>
+                            <Link
+                                href={"https://blogger-omega-wheat.vercel.app/"}
+                            >
+                                Read More
+                            </Link>
                         </Button>
                     </div>
                 </div>
