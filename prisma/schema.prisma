@@ -16,11 +16,11 @@ datasource db {
 model User {
   id        Int       @id @default(autoincrement())
   email     String    @unique
-  password  String
+  password  String?
   mobile    String?   @unique
   firstName String
   lastName  String?
-  role      userRole
+  role      userRole  @default(buyer)
   ratting   Float?
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt

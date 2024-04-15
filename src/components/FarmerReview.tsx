@@ -33,6 +33,10 @@ export function FarmerReview() {
     return (
         <div className="mt-10">
             <Carousel
+                opts={{
+                    align: "start",
+                    loop: true,
+                }}
                 plugins={[
                     Autoplay({
                         delay: 4000,

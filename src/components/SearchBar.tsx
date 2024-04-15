@@ -24,7 +24,7 @@ export function SearchBar({ type = "top" }: SearchBarType) {
         if (inputValue === "") return;
         debouncing = setTimeout(async () => {
             const response = await fetch(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/product/search/?q=${inputValue}`,
+                `${process.env.NEXTAUTH_URL}/api/product/search/?q=${inputValue}`,
                 {
                     next: {
                         revalidate: 0,

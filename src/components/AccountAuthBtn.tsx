@@ -1,6 +1,5 @@
 "use client";
 import { signOut, useSession } from "next-auth/react";
-import { AppbarBtn } from "./AppbarBtn";
 import {
     DropdownMenu,
     DropdownMenuContent,

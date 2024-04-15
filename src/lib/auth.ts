@@ -59,6 +59,30 @@ export const authOption: AuthOptions = {
                 session.user.firstName = token.firstName;
             }
             return session;
-        }
+        },
+        signIn: async ({ account, profile }) => {
+            try {
+                if (account?.provider !== "credentials") {
+                    await prisma.user.upsert({
+                        where: {
+                            email: profile?.email as string
+                        },
+                        update: {
+                            firstName: profile?.name?.split(" ")[0] as string,
+                            lastName: String(profile?.name?.split(" ")[1]),
+                        },
+                        create: {
+                            email: profile?.email as string,
+                            firstName: profile?.name?.split(" ")[0] as string,
+                            lastName: String(profile?.name?.split(" ")[1]),
+                        }
+                    })
+                }
+            } catch (error) {
+                console.log(error)
+                return false;
+            }
+            return true;
+        },
     }
 }

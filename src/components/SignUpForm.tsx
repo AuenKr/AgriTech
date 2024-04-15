@@ -28,7 +28,7 @@ export function SignUpForm() {
     async function onSubmit(values: z.infer<typeof CreateUserSchema>) {
         console.log(values);
         const response = await fetch(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user`,
+            `${process.env.NEXTAUTH_URL}/api/user`,
             {
                 method: "POST",
                 headers: {

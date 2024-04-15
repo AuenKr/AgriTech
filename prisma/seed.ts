@@ -22,6 +22,14 @@ async function seedDB() {
                     lastName: "Smith",
                     role: "buyer",
                     verified: true,
+                },
+                {
+                    email: "abc@abcfdsafdsf.com",
+                    mobile: "1234567880",
+                    firstName: "John",
+                    lastName: "Doe",
+                    role: "farmer",
+                    verified: true,
                 }
             ]
         })
