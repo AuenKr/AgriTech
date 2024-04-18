@@ -1,5 +1,6 @@
 "use server"
 import prisma from "@/db";
+import { getServerSession } from "next-auth";
 
 export async function getAllProducts() {
     const result = await prisma.product.findMany({
@@ -35,6 +36,18 @@ export async function getProductDetails(productId: string) {
                 where: {
                     productId: Number(productId)
                 }
+            }
+        }
+    })
+    return result;
+}
+
+export async function getUserProduct() {
+    const session = await getServerSession();
+    const result = await prisma.product.findMany({
+        where: {
+            user: {
+                email: session?.user?.email as string
             }
         }
     })

@@ -6,7 +6,6 @@ export const CreateProductSchema = z.object({
     price: z.number(),
     salePrice: z.number(),
     quantityAvailable: z.number(),
-    userId: z.string()
 }).strict()
 
 export const UpdateProductSchema = z.object({

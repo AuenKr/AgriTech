@@ -9,10 +9,12 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
-import { ActivityIcon, UserRound } from "lucide-react";
+import { UserRound } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function AccountAuthBtn() {
     const session = useSession();
+    const router = useRouter();
     return (
         <DropdownMenu>
             <DropdownMenuTrigger>
@@ -24,7 +26,9 @@ export function AccountAuthBtn() {
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>Profile</DropdownMenuItem>
-                        <DropdownMenuItem>Add Product</DropdownMenuItem>
+                        <DropdownMenuItem onClick={()=>router.push('/product/add')}>
+                            Add Product
+                        </DropdownMenuItem>
                         <DropdownMenuItem>
                             <div onClick={() => signOut()}>Log Out</div>
                         </DropdownMenuItem>

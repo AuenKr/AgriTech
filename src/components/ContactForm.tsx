@@ -28,24 +28,17 @@ export function ContactForm({ productId }: { productId: string }) {
     const router = useRouter();
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
-        defaultValues: {
-            quantity: "0",
-            bidPrice: "0",
-        },
     });
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         console.log({ ...values, productId });
-        const response = await fetch(
-            `${process.env.NEXTAUTH_URL}/api/order`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json",
-                },
-                body: JSON.stringify({ ...values, productId }),
-            }
-        );
+        const response = await fetch(`/api/order`, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify({ ...values, productId }),
+        });
         const result = await response.json();
         if (response.status != 200) {
             toast({
@@ -107,7 +100,7 @@ export function ContactForm({ productId }: { productId: string }) {
                                         <textarea
                                             placeholder="Give message to farmer"
                                             {...field}
-                                            className="w-full min-h-[300px] dark:bg-black p-2 rounded-lg dark:border-2"
+                                            className="w-full min-h-[300px] dark:bg-black p-2 rounded-lg border-2"
                                         ></textarea>
                                     </div>
                                 </FormControl>

@@ -12,7 +12,7 @@ import Image from "next/image";
 export async function ProductCard({ productId }: { productId: string }) {
     const productDetail = await getProductDetails(productId);
     return (
-        <div className="m-1">
+        <div>
             <Carousel
                 opts={{
                     align: "start",
@@ -20,13 +20,13 @@ export async function ProductCard({ productId }: { productId: string }) {
                 }}
                 className="w-fit"
             >
-                <CarouselContent>
+                <CarouselContent className="-ml-2 md:-ml-4">
                     {productDetail?.Image.map((image) => {
                         return (
                             <CarouselItem
                                 key={image.id}
-                                className="overflow-hidden"
-                                >
+                                className="overflow-hidden pl-2 md:pl-4"
+                            >
                                 <Image
                                     src={image.imageUrl}
                                     alt={String(image.id)}

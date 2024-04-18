@@ -30,7 +30,6 @@ export const authOption: AuthOptions = {
                     if (!result) return null;
                     return { ...result, id: result.id.toString() };
                 } catch (error) {
-                    console.error("Error in authorize function:", error);
                     throw new Error("Error during authentication");
                 }
             },
@@ -49,21 +48,19 @@ export const authOption: AuthOptions = {
         jwt: async ({ user, token }: any) => {
             if (user) {
                 token.uid = user.id;
-                token.firstName = user.firstName;
             }
             return token;
         },
         session: async ({ session, token }: any) => {
             if (session.user) {
                 session.user.userId = token.uid;
-                session.user.firstName = token.firstName;
             }
             return session;
         },
-        signIn: async ({ account, profile }) => {
+        signIn: async ({ account, profile, user }) => {
             try {
                 if (account?.provider !== "credentials") {
-                    await prisma.user.upsert({
+                    const result = await prisma.user.upsert({
                         where: {
                             email: profile?.email as string
                         },
@@ -77,9 +74,9 @@ export const authOption: AuthOptions = {
                             lastName: String(profile?.name?.split(" ")[1]),
                         }
                     })
+                    user.id = String(result.id);
                 }
             } catch (error) {
-                console.log(error)
                 return false;
             }
             return true;

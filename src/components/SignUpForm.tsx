@@ -27,16 +27,13 @@ export function SignUpForm() {
     });
     async function onSubmit(values: z.infer<typeof CreateUserSchema>) {
         console.log(values);
-        const response = await fetch(
-            `${process.env.NEXTAUTH_URL}/api/user`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json",
-                },
-                body: JSON.stringify(values),
-            }
-        );
+        const response = await fetch(`/api/user`, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(values),
+        });
         const result = await response.json();
         if (response.status != 200) {
             toast({
