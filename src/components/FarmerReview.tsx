@@ -31,33 +31,34 @@ export function FarmerReview() {
         },
     ];
     return (
-        <div className="mt-10">
-            <Carousel
-                opts={{
-                    align: "start",
-                    loop: true,
-                }}
-                plugins={[
-                    Autoplay({
-                        delay: 4000,
-                    }),
-                ]}
-                className="sm:m-10"
-            >
-                <CarouselContent>
-                    {reviews.map((review) => (
-                        <CarouselItem key={review.id}>
-                            <ReviewCard
-                                name={review.name}
-                                role={review.role}
-                                feedback={review.feedback}
-                            />
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-                <CarouselPrevious className="hidden sm:block" />
-                <CarouselNext className="hidden sm:block" />
-            </Carousel>
-        </div>
+        <Carousel
+            opts={{
+                align: "start",
+                loop: true,
+            }}
+            plugins={[
+                Autoplay({
+                    delay: 4000,
+                }),
+            ]}
+            className="sm:m-10"
+        >
+            <CarouselContent>
+                {reviews.map((review) => (
+                    <CarouselItem
+                        key={review.id}
+                        className="flex justify-center items-center"
+                    >
+                        <ReviewCard
+                            name={review.name}
+                            role={review.role}
+                            feedback={review.feedback}
+                        />
+                    </CarouselItem>
+                ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden sm:block" />
+            <CarouselNext className="hidden sm:block" />
+        </Carousel>
     );
 }

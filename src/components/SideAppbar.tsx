@@ -34,7 +34,7 @@ export function SideAppbar() {
                             </div>
                         </SheetTitle>
 
-                        <div className="flex flex-col text-md font-bold space-y-2 capitalize">
+                        <div className="flex flex-col text-xl font-bold space-y-6 capitalize pt-4">
                             <Link
                                 href={"/"}
                                 className="hover:text-green-500 duration-200"

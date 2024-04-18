@@ -24,6 +24,7 @@ export function AccountAuthBtn() {
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>Profile</DropdownMenuItem>
+                        <DropdownMenuItem>Add Product</DropdownMenuItem>
                         <DropdownMenuItem>
                             <div onClick={() => signOut()}>Log Out</div>
                         </DropdownMenuItem>

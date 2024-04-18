@@ -37,8 +37,8 @@ export default function HomeCarousel() {
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden sm:block z-10" />
-            <CarouselNext className="hidden sm:block z-10" />
+            <CarouselPrevious className="hidden md:block z-10" />
+            <CarouselNext className="hidden md:block z-10" />
         </Carousel>
     );
 }

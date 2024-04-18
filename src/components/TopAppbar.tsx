@@ -18,11 +18,13 @@ export function TopAppbar() {
                         </span>
                         <span className="text-green-500"> Mandi</span>
                     </Link>
-                    <SearchBar />
+                    <div className="hidden sm:block">
+                        <SearchBar />
+                    </div>
                 </div>
-                <div className="flex space-x-2">
-                    <AccountAuthBtn />
+                <div className="flex justify-center items-center space-x-2">
                     <ModeToggle />
+                    <AccountAuthBtn />
                 </div>
             </div>
         </div>

@@ -6,8 +6,8 @@ export default async function Product({
     params: { productId: string };
 }) {
     return (
-        <div>
-            <div>
+        <div className="flex items-center justify-center">
+            <div className="w-full max-w-[450px]">
                 <ProductCard productId={params.productId} />
             </div>
         </div>
