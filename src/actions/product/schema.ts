@@ -1,3 +1,4 @@
+import Product from '@/app/shop/[productId]/page';
 import { z } from 'zod';
 
 export const CreateProductSchema = z.object({
@@ -15,3 +16,12 @@ export const UpdateProductSchema = z.object({
     salePrice: z.number().optional(),
     quantityAvailable: z.number().optional(),
 }).strict()
+
+export const CreateProductImagesSchema = z.object({
+    productId: z.string(),
+    images: z.object({
+        id: z.string(),
+        imageSrc: z.string(),
+    }).array()
+
+}).strict();

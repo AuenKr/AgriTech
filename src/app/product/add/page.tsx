@@ -1,4 +1,5 @@
 import { CreateProduct } from "@/components/CreateProduct";
+import { UploadProductImage } from "@/components/UploadProductImage";
 
 export default async function AddProduct() {
     return (

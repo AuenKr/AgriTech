@@ -49,7 +49,7 @@ export function CreateProduct() {
             toast({
                 title: result.msg,
             });
-        } else router.push("/product");
+        } else router.push(`/product/add/${result.result.id}`);
     }
     return (
         <Form {...form}>

@@ -66,19 +66,23 @@ async function seedDB() {
             data: [
                 // Images for the Apple product
                 {
+                    sourceId: "tempsourceId",
                     productId: 1,
                     imageUrl: "https://cdn.britannica.com/22/187222-050-07B17FB6/apples-on-a-tree-branch.jpg"
                 },
                 {
+                    sourceId: "tempsourceId",
                     productId: 1,
                     imageUrl: "https://freshindiaorganics.com/cdn/shop/products/Apples.jpg?v=1686739530"
                 },
                 // Images for the Banana product
                 {
+                    sourceId: "tempsourceId",
                     productId: 2,
                     imageUrl: "https://cdn.britannica.com/58/194358-050-91CE9CB6/Gros-Michel-banana-tree.jpg"
                 },
                 {
+                    sourceId: "tempsourceId",
                     productId: 2,
                     imageUrl: "https://herbalwise.com.my/wp-content/uploads/2022/07/shutterstock_533882299-500x370.jpg"
                 }

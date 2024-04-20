@@ -1,4 +1,5 @@
-import { ProductCard } from "@/components/Product";
+import { getProductDetails } from "@/actions/product";
+import { UploadProductImage } from "@/components/UploadProductImage";
 
 export default async function Product({
     params,
@@ -7,9 +8,7 @@ export default async function Product({
 }) {
     return (
         <div className="flex items-center justify-center">
-            <div className="w-full max-w-[450px] m-1">
-                <ProductCard productId={params.productId} />
-            </div>
+            <UploadProductImage productId={params.productId} />
         </div>
     );
 }
