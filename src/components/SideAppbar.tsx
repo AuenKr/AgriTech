@@ -54,16 +54,10 @@ export function SideAppbar() {
                                 Blog
                             </Link>
                             <Link
-                                href={"/about"}
+                                href={"/document"}
                                 className="hover:text-green-500 duration-200"
                             >
-                                AboutUs
-                            </Link>
-                            <Link
-                                href={"/contact"}
-                                className="hover:text-green-500 duration-200"
-                            >
-                                ContactUs
+                                Documentation
                             </Link>
                         </div>
                     </SheetHeader>

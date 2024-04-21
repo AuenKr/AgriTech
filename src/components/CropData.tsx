@@ -1,9 +1,10 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import React, { useState } from "react";
 
-export default function CropDataDisplay() {
+import { useState } from "react";
+import { Card } from "./ui/card";
+import { Button } from "./ui/button";
+
+export function CropData() {
     const [selectedCrop, setSelectedCrop] = useState("tomato");
     const [data, setData] = useState({
         Humidity: "70%",
@@ -49,9 +50,8 @@ export default function CropDataDisplay() {
         }
         setSelectedCrop(crop);
     };
-
     return (
-        <div className="flex justify-center items-center text-center h-full mt-4">
+        <div className="flex flex-col justify-center items-center text-center h-full mt-4 space-y-10">
             <div className="w-full max-w-lg space-y-10">
                 <h2 className="font-bold text-2xl">Select a Crop:</h2>
                 <div className="space-x-3 m-2">
