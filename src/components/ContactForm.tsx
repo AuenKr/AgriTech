@@ -31,7 +31,6 @@ export function ContactForm({ productId }: { productId: string }) {
     });
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log({ ...values, productId });
         const response = await fetch(`/api/order`, {
             method: "POST",
             headers: {

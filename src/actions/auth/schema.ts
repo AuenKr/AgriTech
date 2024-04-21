@@ -28,5 +28,6 @@ export const UpdateAddressSchema = z.object({
     landmark: z.string().optional(),
     city: z.string().optional(),
     state: z.string().optional(),
-    alternateMob: z.string().optional(),
+    alternateMob: z.string().length(10).optional(),
+    userId: z.string()
 }).strict();

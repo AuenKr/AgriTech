@@ -29,7 +29,6 @@ export function CreateProduct() {
         resolver: zodResolver(formData),
     });
     async function onSubmit(values: z.infer<typeof formData>) {
-        console.log(values);
         const bodyData = {
             description: values.description,
             name: values.name,

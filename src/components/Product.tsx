@@ -20,23 +20,29 @@ export async function ProductCard({ productId }: { productId: string }) {
                 }}
                 className="w-fit"
             >
-                <CarouselContent className="-ml-2 md:-ml-4">
-                    {productDetail?.Image.map((image) => {
-                        return (
-                            <CarouselItem
-                                key={image.id}
-                                className="overflow-hidden pl-2 md:pl-4"
-                            >
-                                <Image
-                                    src={image.imageUrl}
-                                    alt={String(image.id)}
-                                    width={1280}
-                                    height={720}
-                                    className="hover:scale-125 transition-all duration-500 w-full aspect-auto max-w-lg h-[60vh] sm:h-full rounded-lg"
-                                />
-                            </CarouselItem>
-                        );
-                    })}
+                <CarouselContent className="w-[450px] h-[450px]">
+                    {productDetail?.Image[0] ? (
+                        productDetail?.Image.map((image) => {
+                            return (
+                                <CarouselItem
+                                    key={image.id}
+                                    className="overflow-hidden pl-2 md:pl-4"
+                                >
+                                    <Image
+                                        src={image.imageUrl}
+                                        alt={String(image.id)}
+                                        width={1280}
+                                        height={720}
+                                        className="hover:scale-125 transition-all duration-500 w-full aspect-auto max-w-lg h-[60vh] sm:h-full rounded-lg"
+                                    />
+                                </CarouselItem>
+                            );
+                        })
+                    ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                            No Image Avalable
+                        </div>
+                    )}
                 </CarouselContent>
                 <CarouselPrevious className="hidden md:block" />
                 <CarouselNext className="hidden md:block" />

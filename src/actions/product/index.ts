@@ -49,6 +49,13 @@ export async function getUserProduct() {
             user: {
                 email: session?.user?.email as string
             }
+        },
+        select: {
+            id: true,
+            price: true,
+            salePrice: true,
+            name: true,
+            Image: true
         }
     })
     return result;

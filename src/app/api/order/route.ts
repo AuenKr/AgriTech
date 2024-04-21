@@ -28,8 +28,6 @@ export async function POST(req: NextRequest) {
                 msg: "Invaid inputs"
             }, { status: 403 })
         }
-        console.log(session.user.userId);
-        console.log(body);
         const result = await prisma.order.create({
             data: {
                 productId: Number(body.productId),
@@ -44,7 +42,6 @@ export async function POST(req: NextRequest) {
             result
         })
     } catch (error) {
-        console.log(error)
         return NextResponse.json({
             msg: "internal server error",
             error

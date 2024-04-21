@@ -1,4 +1,3 @@
-import { getProductDetails } from "@/actions/product";
 import { UploadProductImage } from "@/components/UploadProductImage";
 
 export default async function Product({

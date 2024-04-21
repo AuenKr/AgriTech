@@ -20,14 +20,16 @@ export function AccountAuthBtn() {
             <DropdownMenuTrigger>
                 <UserRound />
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent className="font-bold">
                 {session.data ? (
                     <>
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>Profile</DropdownMenuItem>
-                        <DropdownMenuItem onClick={()=>router.push('/product/add')}>
-                            Add Product
+                        <DropdownMenuItem>
+                            <Link href={"/dashboard"}>Profile</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <Link href={"/product/add"}>Add Product</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
                             <div onClick={() => signOut()}>Log Out</div>

@@ -26,7 +26,6 @@ export function SignUpForm() {
         resolver: zodResolver(CreateUserSchema),
     });
     async function onSubmit(values: z.infer<typeof CreateUserSchema>) {
-        console.log(values);
         const response = await fetch(`/api/user`, {
             method: "POST",
             headers: {

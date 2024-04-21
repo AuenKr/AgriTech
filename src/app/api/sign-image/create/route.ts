@@ -5,7 +5,6 @@ import { Session } from "@/actions/auth/type";
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { z } from "zod";
-import { error } from "console";
 
 export async function POST(req: NextRequest) {
     try {
@@ -16,7 +15,6 @@ export async function POST(req: NextRequest) {
             }, { status: 403 })
         }
         const body: z.infer<typeof CreateProductImagesSchema> = await req.json();
-        console.log(body);
         const response = CreateProductImagesSchema.safeParse(body)
         if (!response.success) {
             return NextResponse.json({
@@ -31,7 +29,6 @@ export async function POST(req: NextRequest) {
                 imageUrl: image.imageSrc
             }
         })
-        console.log(allImage);
         const result = await prisma.image.createMany({
             data: allImage
         })
@@ -40,7 +37,6 @@ export async function POST(req: NextRequest) {
             result
         })
     } catch (error) {
-        console.log(error)
         return NextResponse.json({
             msg: "internal server error",
             error
