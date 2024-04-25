@@ -1,3 +1,4 @@
+import { getUser } from "@/actions/auth";
 import {
     Sheet,
     SheetContent,
@@ -7,7 +8,8 @@ import {
 } from "@/components/ui/sheet";
 import Link from "next/link";
 
-export function SideAppbar() {
+export async function SideAppbar() {
+    const userData = await getUser();
     return (
         <div>
             <Sheet>
@@ -53,12 +55,14 @@ export function SideAppbar() {
                             >
                                 Blog
                             </Link>
-                            <Link
-                                href={"/document"}
-                                className="hover:text-green-500 duration-200"
-                            >
-                                Documentation
-                            </Link>
+                            {userData?.role === "farmer" && (
+                                <Link
+                                    href={"/document"}
+                                    className="hover:text-green-500 duration-200"
+                                >
+                                    Documentation
+                                </Link>
+                            )}
                         </div>
                     </SheetHeader>
                 </SheetContent>
